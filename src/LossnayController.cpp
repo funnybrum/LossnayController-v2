@@ -1,23 +1,28 @@
 #include "LossnayController.h"
 
+Logger logger = Logger();
+Settings settings = Settings();
+
+WiFiManager wifi = WiFiManager(&logger, &settings.getSettings()->network);
+WebServer webServer = WebServer(&logger, &settings.getSettings()->network);
+
 void setup()
-{
-    logger.begin();
-
+{ 
+    Serial.begin(74880);
+    while (! Serial) {
+        delay(1);
+    }
     settings.begin();
-
-    ScanAndConnect();
-
+    wifi.begin();
     webServer.begin();
-    systemCheck.begin();
-    lossnay.begin();
+
+    wifi.connect();
 }
 
 void loop() {
+    wifi.loop();
     webServer.loop();
     settings.loop();
-    systemCheck.loop();
-    logger.loop();
-    lossnay.loop();
+
     delay(100);
 }

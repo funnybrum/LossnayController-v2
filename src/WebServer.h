@@ -1,29 +1,16 @@
-#ifndef _WEBSERVER_H_
-#define _WEBSERVER_H_
+#pragma once
 
 #include "LossnayController.h"
+#include "WebServerBase.h"
 #include "WebPages.h"
 
-class WebServer {
+class WebServer: public WebServerBase {
     public:
-        WebServer(int port);
-        void begin();
-        void loop();
-    private:
-        ESP8266WebServer *_server;
-        ESP8266HTTPUpdateServer *_httpUpdater;
-
+        WebServer(Logger* logger, NetworkSettings* networkSettings);
+        void registerHandlers();
         void handle_root();
         void handle_get();
         void handle_settings();
         void handle_reset();
-        void handle_hard_reset();
-        void handle_logs();
-        void handle_on();
-        void handle_off();
-        void handle_fan();
+        void handle_blink();
 };
-
-extern WebServer webServer;
-
-#endif

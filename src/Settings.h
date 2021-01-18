@@ -1,33 +1,23 @@
-#ifndef _SETTINGS_H_
-#define _SETTINGS_H_
+#pragma once
 
-#include "LossnayController.h"
+#include "SettingsBase.h"
+#include "WiFi.h"
 
 struct SettingsData {
-    uint8_t checksum;
-    char hostname[64];
+    NetworkSettings network;
 };
 
-#define DATA_SIZE sizeof(SettingsData)
-// Temporary replacement for the calculated checksum to allow lossless migration.
-#define TEMP_CHECKSUM_VAL 101
+struct Empty {};
 
-class Settings {
+class Settings: public SettingsBase<SettingsData, Empty> {
     public:
-        void begin();
-        void loop();
-        void save();
-        void erase();
-        /**
-         * Get the stored settings. If there was no saved settings the result
-         * will be initialized with zeroes.
-         */
-        SettingsData* get();
+        Settings();
+        SettingsData* getSettings();
+
+    protected:
+        void initializeSettings();
+        Empty* getRTCSettings();
+
     private:
-        SettingsData data;
-        void writeToEEPROM();
+        SettingsData settingsData;
 };
-
-extern Settings settings;
-
-#endif
