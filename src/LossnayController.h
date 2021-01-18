@@ -12,15 +12,14 @@
 #define HTTP_PORT 80
 #define HOSTNAME "ventilator"
 
-// GPIO PINS
-#define ON_OFF_PIN  D0
-#define FAN_SPEED_1 D1
-#define FAN_SPEED_2 D2
-#define FAN_SPEED_3 D6
-#define FAN_SPEED_4 D7
-
+// GPIO pins
+#define ON_OFF_PIN         D4
+#define FAN_SPEED_1_PIN    D5
+#define FAN_SPEED_2_PIN    D6
+#define FAN_SPEED_3_PIN    D7
+#define FAN_SPEED_4_PIN    D8
+#define BYPASS_PIN         D3
 
 extern Logger logger;
 extern Settings settings;
 extern WiFiManager wifi;
-extern SystemCheck systemCheck;

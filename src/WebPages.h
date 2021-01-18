@@ -16,3 +16,15 @@ const char CONFIG_PAGE[] PROGMEM = R"=====(
  </BODY>
 </HTML>
 )=====";
+
+const char GET_JSON[] PROGMEM = R"=====({
+ "in_temp":%.1f,
+ "in_humidity":%.1f,
+ "in_abs_humidity":%.2f,
+ "out_temp":%.1f,
+ "out_humidity":%.1f,
+ "out_abs_humidity":%.2f,
+ "bypass":%s,
+ "power":%s,
+ "fan_speed":%d
+})=====";

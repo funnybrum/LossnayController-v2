@@ -11,6 +11,8 @@ class WebServer: public WebServerBase {
         void handle_root();
         void handle_get();
         void handle_settings();
-        void handle_reset();
-        void handle_blink();
+        void handle_speed();
+        void handle_mode();
+        void handle_on();
+        void handle_off();
 };
