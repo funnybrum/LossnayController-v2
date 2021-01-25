@@ -7,6 +7,8 @@ Settings::Settings()
 
 void Settings::initializeSettings() {
     strcpy(settingsData.network.hostname, HOSTNAME);
+    settingsData.supplyAir.humidityFactor = 100;
+    settingsData.returnAir.humidityFactor = 100;
 }
 
 SettingsData* Settings::getSettings() {

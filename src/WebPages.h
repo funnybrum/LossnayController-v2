@@ -6,6 +6,9 @@ const char CONFIG_PAGE[] PROGMEM = R"=====(
  <BODY>
   <form action="/settings" method="get">
    %s<br><br>
+   %s<br><br>
+   %s<br><br>
+   %s<br><br>
    <br><br>
    <input type="submit" value="Save" style='width: 150px;'>
    &nbsp;&nbsp;&nbsp;
@@ -18,12 +21,12 @@ const char CONFIG_PAGE[] PROGMEM = R"=====(
 )=====";
 
 const char GET_JSON[] PROGMEM = R"=====({
- "in_temp":%.1f,
- "in_humidity":%.1f,
- "in_abs_humidity":%.2f,
- "out_temp":%.1f,
- "out_humidity":%.1f,
- "out_abs_humidity":%.2f,
+ "ra_temp":%.1f,
+ "ra_humidity":%.1f,
+ "ra_abs_humidity":%.2f,
+ "sa_temp":%.1f,
+ "sa_humidity":%.1f,
+ "sa_abs_humidity":%.2f,
  "bypass":%s,
  "power":%s,
  "fan_speed":%d

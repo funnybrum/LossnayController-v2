@@ -24,27 +24,41 @@ void WebServer::handle_root() {
 
 void WebServer::handle_settings() {
     wifi.parse_config_params(this);
+    supplyAirSensor.parse_config_params(this);
+    returnAirSensor.parse_config_params(this);
+    dataCollector.parse_config_params(this);
 
     char network_settings[strlen_P(NETWORK_CONFIG_PAGE) + 32];
     wifi.get_config_page(network_settings);
 
+    char telemetry_settings[strlen_P(INFLUXDB_CONFIG_PAGE) + 48];
+    dataCollector.get_config_page(telemetry_settings);
+
+    char sa_sensor_settings[strlen_P(BME280_CONFIG_PAGE) + 48];
+    supplyAirSensor.get_config_page(sa_sensor_settings);
+
+    char ra_sensor_settings[strlen_P(BME280_CONFIG_PAGE) + 48];
+    returnAirSensor.get_config_page(ra_sensor_settings);
 
     sprintf_P(
         buffer,
         CONFIG_PAGE,
-        network_settings);
+        network_settings,
+        telemetry_settings,
+        sa_sensor_settings,
+        ra_sensor_settings);
     server->send(200, "text/html", buffer);
 }
 
 void WebServer::handle_get() {
     sprintf_P(buffer,
               GET_JSON,
-              0.0f,
-              0.0f,
-              0.0f,
-              0.0f,
-              0.0f,
-              0.0f,
+              returnAirSensor.getTemperature(),
+              returnAirSensor.getHumidity(),
+              returnAirSensor.getAbsoluteHimidity(),
+              supplyAirSensor.getTemperature(),
+              supplyAirSensor.getHumidity(),
+              supplyAirSensor.getAbsoluteHimidity(),
               "false",
               "true",
               -1);

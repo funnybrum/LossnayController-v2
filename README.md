@@ -39,3 +39,6 @@ The project uses a common set of tools that are availabe in another repo - https
 cd lib
 git clone git@github.com:funnybrum/esp8266-base.git
 ```
+
+# Future improvements
+* Add support for supply/return air pressure

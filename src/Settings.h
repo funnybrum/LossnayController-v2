@@ -2,9 +2,14 @@
 
 #include "SettingsBase.h"
 #include "WiFi.h"
+#include "BME280.h"
+#include "InfluxDBCollector.h"
 
 struct SettingsData {
     NetworkSettings network;
+    BME280Settings returnAir;
+    BME280Settings supplyAir;
+    InfluxDBCollectorSettings influxDB;
 };
 
 struct Empty {};
