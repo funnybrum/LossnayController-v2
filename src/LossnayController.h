@@ -11,6 +11,7 @@
 
 #include "DataCollector.h"
 #include "BME280.h"
+#include "FanController.h"
 
 #define HTTP_PORT 80
 #define HOSTNAME "ventilator"
@@ -27,6 +28,7 @@ extern Logger logger;
 extern Settings settings;
 extern WiFiManager wifi;
 extern DataCollector dataCollector;
+extern FanController fanController;
 extern BME280 returnAirSensor;
 extern BME280 supplyAirSensor;
 

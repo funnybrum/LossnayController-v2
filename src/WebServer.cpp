@@ -66,10 +66,12 @@ void WebServer::handle_get() {
 }
 
 void WebServer::handle_on() {
+    fanController.on();
     server->send(200);
 }
 
 void WebServer::handle_off() {
+    fanController.off();
     server->send(200);
 }
 
@@ -86,9 +88,7 @@ void WebServer::handle_mode() {
         return;
     }
 
-    // TODO
-    Serial.print("Mode set to ");
-    Serial.println(server->argName(0));
+    fanController.setMode((server->argName(0).equals("lossnay"))?LOSSNAY:BYPASS);
     server->send(200);
 }
 
@@ -106,8 +106,6 @@ void WebServer::handle_speed() {
         return;
     }
 
-    // TODO
-    Serial.print("Speed set to ");
-    Serial.println(speed);
+    fanController.setSpeed(speed);
     server->send(200);
 }
