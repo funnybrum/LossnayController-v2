@@ -15,4 +15,5 @@ class WebServer: public WebServerBase {
         void handle_mode();
         void handle_on();
         void handle_off();
+        void handle_help();
 };

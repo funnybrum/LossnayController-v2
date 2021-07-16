@@ -31,3 +31,13 @@ const char GET_JSON[] PROGMEM = R"=====({
  "power":%s,
  "fan_speed":%d
 })=====";
+
+const char HELP_PAGE[] PROGMEM = R"=====(
+/settings -> settings page<br>
+/get -> get current state<br>
+/on -> turn the unit on<br>
+/off -> turn the unit off<br>
+/mode?[lossnay|bypass] -> set heat recovery/bypass mode<br> 
+/speed?[1|2|3|4] -> set the fan speed<br>
+/help -> this page
+)=====";

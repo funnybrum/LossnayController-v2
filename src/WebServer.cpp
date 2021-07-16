@@ -14,7 +14,7 @@ void WebServer::registerHandlers() {
     server->on("/off", std::bind(&WebServer::handle_off, this));
     server->on("/mode", std::bind(&WebServer::handle_mode, this));
     server->on("/speed", std::bind(&WebServer::handle_speed, this));
-
+    server->on("/help", std::bind(&WebServer::handle_help, this));
 }
 
 void WebServer::handle_root() {
@@ -59,9 +59,9 @@ void WebServer::handle_get() {
               supplyAirSensor.getTemperature(),
               supplyAirSensor.getHumidity(),
               supplyAirSensor.getAbsoluteHimidity(),
-              "false",
-              "true",
-              -1);
+              (fanController.getMode() == BYPASS)?"true":"false",
+              fanController.isPowered()?"true":"false",
+              fanController.getSpeed());
     server->send(200, "application/json", buffer);
 }
 
@@ -108,4 +108,9 @@ void WebServer::handle_speed() {
 
     fanController.setSpeed(speed);
     server->send(200);
+}
+
+void WebServer::handle_help() {
+    sprintf_P(buffer, HELP_PAGE);
+    server->send(200, "application/json", buffer);
 }

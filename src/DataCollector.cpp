@@ -20,7 +20,9 @@ void DataCollector::collectData() {
     append("sa_humidity", supplyAirSensor.getHumidity(), 1);
     append("sa_abs_humidity", supplyAirSensor.getAbsoluteHimidity(), 2);
 
-    // TODO: Collect fan speed and HRV on/off state.
+    append("bypass", fanController.getMode() == BYPASS, 0);
+    append("on", fanController.isPowered(), 0);
+    append("speed", fanController.getSpeed(), 0);
 }
 
 bool DataCollector::shouldPush() {

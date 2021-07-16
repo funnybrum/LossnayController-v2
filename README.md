@@ -5,9 +5,10 @@
 This time I got a Lossnay LGH-100RVX-E and I'm bilding improved version of the Lossnay Controller. The improvements will include:
  1) Improved REST API.
  2) PCB (shared project).
- 3) External antena! Very critical part, as the old version had PCB antena that is loosing connectivityt when put inside a metal enclosure.
+ 3) External antena! Very critical part, as the old version had PCB antena that is loosing connectivityt when put inside the metal enclosure.
  4) Temeprature/humidity monitoring on the exhaust/fresh air. This was planned for v1, but never got added. BME280 will be used for that purpose.
  5) Telemetry collection (fan speed, on/off state/bypass valve).
+ 6) [PENDING] RS-485 communication interface with support of controlling the unit and returning the telemtry data.
 
 # Lossnay mainboard communication
 
