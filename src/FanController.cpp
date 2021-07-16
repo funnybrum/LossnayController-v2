@@ -17,12 +17,12 @@ void FanController::begin() {
 
 void FanController::loop() {
     if (_changes) {
-        digitalWrite(ON_OFF_PIN, _powered?HIGH:LOW);
+        digitalWrite(ON_OFF_PIN, _powered?LOW:HIGH);
         digitalWrite(FAN_SPEED_1_PIN, (_speed==1)?HIGH:LOW);
         digitalWrite(FAN_SPEED_2_PIN, (_speed==2)?HIGH:LOW);
         digitalWrite(FAN_SPEED_3_PIN, (_speed==3)?HIGH:LOW);
         digitalWrite(FAN_SPEED_4_PIN, (_speed==4)?HIGH:LOW);
-        digitalWrite(BYPASS_PIN, (_mode==BYPASS)?HIGH:LOW);
+        digitalWrite(BYPASS_PIN, (_mode==BYPASS)?LOW:HIGH);
         _changes = false;
 
         logger.log("Setting mode to %s/%d/%s",
