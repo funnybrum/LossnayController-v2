@@ -35,6 +35,7 @@ class BME280 {
 
         float getTemperature();
         float getHumidity();
+        float getPressure();
         float getAbsoluteHimidity();
 
         void get_config_page(char* buffer);
@@ -45,6 +46,7 @@ class BME280 {
 
         float _temp;
         float _humidity;
+        float _pressure;
         bool _sensorFound;
         bool _initialized = false;
         uint8_t _address;

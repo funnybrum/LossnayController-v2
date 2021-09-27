@@ -37,6 +37,7 @@ bool BME280::measure() {
     if (ok) {
         _temp = _bme280.getTemperature();
         _humidity = _bme280.getHumidity();
+        _pressure = _bme280.getPressure();
 
         // Apply corrections
         _humidity = _settings->humidityFactor * _humidity * 0.01f +
@@ -62,6 +63,10 @@ float BME280::getTemperature() {
 
 float BME280::getHumidity() {
     return _humidity;
+}
+
+float BME280::getPressure() {
+    return _pressure/100.0;
 }
 
 float BME280::getAbsoluteHimidity() {

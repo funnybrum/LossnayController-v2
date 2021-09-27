@@ -19,10 +19,10 @@
 
 // GPIO pins
 #define ON_OFF_PIN         D3
-#define FAN_SPEED_1_PIN    D5
-#define FAN_SPEED_2_PIN    D6
-#define FAN_SPEED_3_PIN    D7
-#define FAN_SPEED_4_PIN    D8
+#define FAN_SPEED_1_PIN    D8
+#define FAN_SPEED_2_PIN    D7
+#define FAN_SPEED_3_PIN    D6
+#define FAN_SPEED_4_PIN    D5
 #define BYPASS_PIN         D4
 
 extern Logger logger;

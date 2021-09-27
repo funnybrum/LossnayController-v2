@@ -15,15 +15,15 @@ bool BoschBME280::begin(uint8_t addr) {
     
     // Oversampling configuration.
     bme280.settings.osr_h = BME280_OVERSAMPLING_1X;
-    bme280.settings.osr_p = BME280_NO_OVERSAMPLING;
-    bme280.settings.osr_t = BME280_OVERSAMPLING_1X;
-    bme280.settings.filter = BME280_FILTER_COEFF_OFF;
+    bme280.settings.osr_p = BME280_OVERSAMPLING_16X;
+    bme280.settings.osr_t = BME280_OVERSAMPLING_2X;
+    bme280.settings.filter = BME280_FILTER_COEFF_16;
 
     Wire.begin();
 
     // Initialize the sensor, apply the configuration and set the sensor to FORCED mode.
     errors += bme280_init(&bme280) != BME280_OK;
-    errors += (bme280_set_sensor_settings(BME280_OSR_TEMP_SEL|BME280_OSR_HUM_SEL|BME280_FILTER_SEL, &bme280) != BME280_OK) << 1;
+    errors += (bme280_set_sensor_settings(BME280_OSR_TEMP_SEL|BME280_OSR_HUM_SEL|BME280_FILTER_SEL|BME280_OSR_PRESS_SEL, &bme280) != BME280_OK) << 1;
     errors += (bme280_set_sensor_mode(BME280_FORCED_MODE, &bme280) != BME280_OK) << 2;
     req_delay = bme280_cal_meas_delay(&bme280.settings);
 
@@ -48,6 +48,10 @@ double BoschBME280::getTemperature() {
 
 double BoschBME280::getHumidity() {
     return comp_data.humidity;
+}
+
+double BoschBME280::getPressure() {
+    return comp_data.pressure;
 }
 
 int8_t BoschBME280::I2CWrite(uint8_t reg_addr, const uint8_t *reg_data, uint32_t len, void *intf_ptr) {  

@@ -9,6 +9,7 @@ class BoschBME280 {
 
         double getTemperature();
         double getHumidity();
+        double getPressure();
     private:
         static int8_t I2CRead(uint8_t reg_addr, uint8_t *reg_data, uint32_t len, void *intf_ptr);
         static int8_t I2CWrite(uint8_t reg_addr, const uint8_t *reg_data, uint32_t len, void *intf_ptr);

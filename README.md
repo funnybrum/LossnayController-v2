@@ -16,7 +16,7 @@ This time I got a Lossnay LGH-100RVX-E and I'm bilding improved version of the L
 
 The device must be turned on before operating it. Untill it is turned on - the speed settings have no effect.
 
-This will be implemented with optocoupler. The output of it will "ground" TM2-1 to TM2-3. The current is a few mA.
+This will be implemented with optocoupler. The output of it will "ground" TM2-1 to TM2-3. The  rent is a few mA.
 
 
 ## CN17 to controll the 4 fan speeds
