@@ -13,6 +13,7 @@
 #include "DataCollector.h"
 #include "BME280.h"
 #include "FanController.h"
+#include "Monitor.h"
 
 #define HTTP_PORT 80
 #define HOSTNAME "ventilator"
@@ -32,4 +33,4 @@ extern DataCollector dataCollector;
 extern FanController fanController;
 extern BME280 returnAirSensor;
 extern BME280 supplyAirSensor;
-
+extern Monitor monitor;

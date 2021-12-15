@@ -63,7 +63,11 @@ void WebServer::handle_get() {
               supplyAirSensor.getAbsoluteHimidity(),
               (fanController.getMode() == BYPASS)?"true":"false",
               fanController.isPowered()?"true":"false",
-              fanController.getSpeed());
+              fanController.getSpeed(),
+              monitor.getAnalog(),
+              monitor.getBypassIndicator(),
+              monitor.getMalfunctionIndicator(),
+              monitor.getOperatingIndicator());
     server->send(200, "application/json", buffer);
 }
 

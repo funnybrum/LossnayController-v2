@@ -9,6 +9,7 @@ DataCollector dataCollector = DataCollector();
 FanController fanController = FanController();
 BME280 returnAirSensor = BME280(&settings.getSettings()->returnAir, 0x77, "ra", "Supply Air Sensor");
 BME280 supplyAirSensor = BME280(&settings.getSettings()->supplyAir, 0x76, "sa", "Return Air Sensor");
+Monitor monitor = Monitor();
 
 void setup()
 { 
@@ -23,6 +24,7 @@ void setup()
     fanController.begin();
     returnAirSensor.begin();
     supplyAirSensor.begin();
+    monitor.begin();
 
     dataCollector.begin();
 
@@ -37,6 +39,7 @@ void loop() {
     fanController.loop();
     returnAirSensor.loop();
     supplyAirSensor.loop();
+    monitor.loop();
     dataCollector.loop();
 
     delay(100);

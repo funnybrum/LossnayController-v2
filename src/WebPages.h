@@ -31,7 +31,11 @@ const char GET_JSON[] PROGMEM = R"=====({
  "sa_abs_humidity":%.2f,
  "bypass":%s,
  "power":%s,
- "fan_speed":%d
+ "fan_speed":%d,
+ "analog":%d,
+ "i_bypass": %d,
+ "i_malfunction": %d,
+ "i_operating": %d
 })=====";
 
 const char HELP_PAGE[] PROGMEM = R"=====(

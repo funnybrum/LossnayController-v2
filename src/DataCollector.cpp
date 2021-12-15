@@ -25,6 +25,9 @@ void DataCollector::collectData() {
     append("bypass", fanController.getMode() == BYPASS, 0);
     append("on", fanController.isPowered(), 0);
     append("speed", fanController.getSpeed(), 0);
+    append("i_bypass", monitor.getBypassIndicator(), 0);
+    append("i_malfunction", monitor.getMalfunctionIndicator(), 0);
+    append("i_operating", monitor.getOperatingIndicator(), 0);
 }
 
 bool DataCollector::shouldPush() {
