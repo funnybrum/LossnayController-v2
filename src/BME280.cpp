@@ -17,9 +17,10 @@ bool BME280::begin() {
         }
         if (_settings->humidityFactor == 0) {
             // Initialize settings
+            _settings->temperatureFactor = 100;
+            _settings->temperatureOffset = 0;
             _settings->humidityFactor = 100;
             _settings->humidityOffset = 0;
-            _settings->temperatureOffset = 0;
         }
         _initialized = true;
     }
@@ -49,7 +50,9 @@ bool BME280::measure() {
             _humidity = min(_humidity, 100.0f);
         }
 
-        _temp = _temp + _settings->temperatureOffset / 10.0;
+        _temp = _settings->temperatureFactor * _temp * 0.01f +
+                _settings->temperatureOffset * 0.1f;
+
         return true;
     } else {
         logger.log("Failed on BME280 .measure()");
@@ -79,6 +82,8 @@ void BME280::get_config_page(char* buffer) {
         BME280_CONFIG_PAGE,
         _legend,
         _prefix,
+        _settings->temperatureFactor,
+        _prefix,
         _settings->temperatureOffset,
         _prefix,
         _settings->humidityFactor,
@@ -86,8 +91,9 @@ void BME280::get_config_page(char* buffer) {
         _settings->humidityOffset);
 }
 
-void BME280::   parse_config_params(WebServerBase* webServer) {
+void BME280::parse_config_params(WebServerBase* webServer) {
     String p(_prefix);
+    webServer->process_setting((p + "temp_factor").c_str(), _settings->temperatureFactor);
     webServer->process_setting((p + "temp_offset").c_str(), _settings->temperatureOffset);
     webServer->process_setting((p + "humidity_factor").c_str(), _settings->humidityFactor);
     webServer->process_setting((p + "humidity_offset").c_str(), _settings->humidityOffset);

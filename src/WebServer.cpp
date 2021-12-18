@@ -34,10 +34,10 @@ void WebServer::handle_settings() {
     char telemetry_settings[strlen_P(INFLUXDB_CONFIG_PAGE) + 48];
     dataCollector.get_config_page(telemetry_settings);
 
-    char sa_sensor_settings[strlen_P(BME280_CONFIG_PAGE) + 48];
+    char sa_sensor_settings[strlen_P(BME280_CONFIG_PAGE) + 64];
     supplyAirSensor.get_config_page(sa_sensor_settings);
 
-    char ra_sensor_settings[strlen_P(BME280_CONFIG_PAGE) + 48];
+    char ra_sensor_settings[strlen_P(BME280_CONFIG_PAGE) + 64];
     returnAirSensor.get_config_page(ra_sensor_settings);
 
     sprintf_P(
