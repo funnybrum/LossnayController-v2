@@ -67,7 +67,8 @@ void WebServer::handle_get() {
               monitor.getAnalog(),
               monitor.getBypassIndicator(),
               monitor.getMalfunctionIndicator(),
-              monitor.getOperatingIndicator());
+              monitor.getOperatingIndicator(),
+              WiFi.RSSI());
     server->send(200, "application/json", buffer);
 }
 

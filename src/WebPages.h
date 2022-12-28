@@ -35,7 +35,8 @@ const char GET_JSON[] PROGMEM = R"=====({
  "analog":%d,
  "i_bypass": %d,
  "i_malfunction": %d,
- "i_operating": %d
+ "i_operating": %d,
+ "rssi": %d
 })=====";
 
 const char HELP_PAGE[] PROGMEM = R"=====(

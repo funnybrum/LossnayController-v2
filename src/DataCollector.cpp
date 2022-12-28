@@ -34,5 +34,9 @@ bool DataCollector::shouldPush() {
     return false;
 }   
 
-void DataCollector::onPush() {
+void DataCollector::beforePush() {
+    append("rssi", WiFi.RSSI(), 0);
+}
+
+void DataCollector::afterPush() {
 }
