@@ -92,7 +92,7 @@ The wiring diagram is (Controller <-> Lossnay):
 |CN26_BPS-1|CN26-1 |
 |CN26_BPS-2|CN26-2 |
 
-## Lossnay status output
+## TM3 for monitoring the Lossnay status
 Based on the following 3 sections from the official documentation:
  * "By-pass monitor or Pre-heater signal output."
  * "Malfunction monitor output."
