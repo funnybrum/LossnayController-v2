@@ -61,21 +61,25 @@ Based on "When interlocked with indoor unit of air conditioner or other external
 
 The device must be turned on before operating it. Untill it is turned on - the speed settings have no effect. This is acomplished by one of the SSRs that connects TM2-1 to TM2-3.
 
-The wiring diagram is (Controller <-> Lossnay):
- * TM2-1 <-> TM2-1
- * TM2-2 <-> TM2-3
+The wiring diagram is:
+|Controller|Lossnay|
+|----------|-------|
+|TM2-1     |TM2-1  |
+|TM2-2     |TM2-2  |
 
 ## CN17 to controll the 4 fan speeds
 Based on the "When switching fan speed externally" from the documentation.
 
 This works by using the CN17 connector. There are 4 SSRs that are connecting one of the CN17-2/CN17-3/CN17-4/CN17-5 to CN17-1.
 
-The wiring diagram is (Controller <-> Lossnay):
-CN17-1 <-> CN17-1
-CN17-2 <-> CN17-2
-CN17-3 <-> CN17-3
-CN17-4 <-> CN17-4
-CN17-5 <-> CN17-5
+The wiring diagram is:
+|Controller|Lossnay|
+|----------|-------|
+|CN17-1    |CN17-1 |
+|CN17-2    |CN17-2 |
+|CN17-3    |CN17-3 |
+|CN17-4    |CN17-4 |
+|CN17-5    |CN17-5 |
 
 ## CN26 to controll the bypass valve
 Based on the "When switching By-pass externally." from the documentation.
@@ -83,9 +87,10 @@ Based on the "When switching By-pass externally." from the documentation.
 In some cases it would be desired to use the bypass mode to avoid heat/humidity recovery. Again achived by SSR connecting CN26-1 to CN26-2. Connecting these two will force bypass mode. Disconnecting them will set the desired mode to recovery (lossnay) mode. The HRV may decide by itself to enter bypass mode in some cases. Check the documentation for details.
 
 The wiring diagram is (Controller <-> Lossnay):
-CN26_BPS-1 <-> CN26-1
-CN26_BPS-2 <-> CN26-2
-
+|Controller|Lossnay|
+|----------|-------|
+|CN26_BPS-1|CN26-1 |
+|CN26_BPS-2|CN26-2 |
 
 ## Lossnay status output
 Based on the following 3 sections from the official documentation:
@@ -96,10 +101,13 @@ Based on the following 3 sections from the official documentation:
 The Lossnay exposes 3 relay outputs indicating if the device is on or off, if there is a malfunction and the current mode (lossnay/bypass). The controller monitor these through the analog input and array of 3 resistors.
 
 The wiring diagram is (Controller <-> Lossnay):
-MONITOR-1 <-> TM3-7
-MONITOR-2 <-> TM3-8
-MONITOR-3 <-> TM3-9
-MONITOR-4 <-> TM3-10
+|Controller|Lossnay|
+|----------|-------|
+|MONITOR-1 |TM3-7  |
+|MONITOR-2 |TM3-8  |
+|MONITOR-3 |TM3-9  |
+|MONITOR-4 |TM3-10 |
+
 
 # Implementation notes
 
