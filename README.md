@@ -9,6 +9,8 @@ This time I got a Lossnay LGH-100RVX-E and I'm bilding improved version of the L
  4) Temeprature/humidity monitoring on the exhaust/fresh air. This was planned for v1, but never got added. BME280 will be used for that purpose.
  5) Telemetry collection (fan speed, on/off state/bypass valve).
  6) [PENDING] RS-485 communication interface with support of controlling the unit and returning the telemtry data.
+ 
+PCB project is available at [EasyEDA's OSHWLab](https://oshwlab.com/funnybrum/lossnay-controller_copy). From there you can directly order the PCB at JLCPCB.
 
 # Lossnay mainboard communication
 
